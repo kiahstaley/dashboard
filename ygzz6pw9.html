@@ -1,1 +1,293 @@
-/home/claude/dashboard.html
+<title>Staley HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5EF; --surface: #FFFFFF; --surface-alt: #ECE8DC; --ink: #272521; --muted: #837F71; --line: #E2DDCC;
+    --accent: #3E5C76; --accent-strong: #2C4356; --accent-soft: #DCE6ED;
+    --r: #7C5A78; --r-soft: #EFE6EE;
+    --e: #B0614F; --e-soft: #F3E4DF;
+    --k: #A9821F; --k-soft: #F1E9D2;
+    --d: #A6192E; --d-soft: #F3DEE1;
+    --good: #5F7052; --good-soft: #EAEFE3;
+    --shadow: 0 1px 2px rgba(39,37,33,0.06), 0 6px 20px rgba(39,37,33,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1A1815; --surface: #221F1A; --surface-alt: #2B2721; --ink: #F1EDE2; --muted: #A69F8D; --line: #3A352C;
+      --accent: #7FA0BC; --accent-strong: #A7C1D8; --accent-soft: #24313C;
+      --r: #C9A9C6; --r-soft: #302A32; --e: #D99D8C; --e-soft: #332621;
+      --k: #D9B65C; --k-soft: #332A18; --d: #E38494; --d-soft: #33212A;
+      --good: #9CBB88; --good-soft: #232A1D;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1A1815; --surface: #221F1A; --surface-alt: #2B2721; --ink: #F1EDE2; --muted: #A69F8D; --line: #3A352C;
+    --accent: #7FA0BC; --accent-strong: #A7C1D8; --accent-soft: #24313C;
+    --r: #C9A9C6; --r-soft: #302A32; --e: #D99D8C; --e-soft: #332621;
+    --k: #D9B65C; --k-soft: #332A18; --d: #E38494; --d-soft: #33212A;
+    --good: #9CBB88; --good-soft: #232A1D;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  * { box-sizing: border-box; } html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Karla','Segoe UI',Helvetica,Arial,sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.45; }
+  a { color: var(--accent-strong); }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .wrap { max-width: 580px; margin: 0 auto; padding: 22px 18px 48px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .wordmark { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-strong); }
+  .wordmark span { color: var(--muted); font-weight: 500; }
+  .badge { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--accent-strong); background: var(--accent-soft); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+  .hero { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px 22px 20px; box-shadow: var(--shadow); margin-bottom: 16px; }
+  .hero-date { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-optical-sizing: auto; font-size: clamp(26px, 7vw, 32px); letter-spacing: -0.01em; text-wrap: balance; margin: 0 0 6px; }
+  .hero-greeting { margin: 0; color: var(--muted); font-size: 15px; max-width: 46ch; }
+  .weather { display: flex; align-items: center; gap: 10px; background: var(--accent-soft); border-radius: 12px; padding: 11px 14px; margin-top: 14px; }
+  .weather-icon { font-size: 20px; line-height: 1; }
+  .weather p { margin: 0; font-size: 12.5px; color: var(--ink); }
+  .weather .wlabel { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 2px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: var(--shadow); margin-bottom: 14px; }
+  .card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+  .card-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 18px; margin: 0; display: flex; align-items: center; gap: 8px; }
+  .card-meta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .day-label { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 16px 0 6px; }
+  .day-label:first-child { margin-top: 0; }
+  .lineup-row { display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .lineup-row:first-child, .day-label + .lineup-row { border-top: none; padding-top: 0; }
+  .lineup-time { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: var(--accent-strong); white-space: nowrap; padding-top: 1px; min-width: 68px; }
+  .lineup-body p { margin: 0; } .lineup-title { font-weight: 600; font-size: 14.5px; } .lineup-note { color: var(--muted); font-size: 13px; margin-top: 2px !important; }
+  .who { display: inline-flex; align-items: center; gap: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 700; padding: 2px 8px 2px 6px; border-radius: 999px; margin-left: 6px; vertical-align: 1px; }
+  .who-dot { width: 7px; height: 7px; border-radius: 999px; flex: none; }
+  .who-r { background: var(--r-soft); color: var(--r); } .who-r .who-dot { background: var(--r); }
+  .who-e { background: var(--e-soft); color: var(--e); } .who-e .who-dot { background: var(--e); }
+  .who-k { background: var(--k-soft); color: var(--k); } .who-k .who-dot { background: var(--k); }
+  .who-d { background: var(--d-soft); color: var(--d); } .who-d .who-dot { background: var(--d); }
+  .empty { display: flex; gap: 12px; align-items: flex-start; background: var(--good-soft); border-radius: 12px; padding: 14px 16px; }
+  .empty-check { font-size: 17px; line-height: 1.4; }
+  .empty p { margin: 0; font-size: 13.5px; } .empty .empty-head { font-weight: 700; color: var(--good); margin-bottom: 2px !important; } .empty .empty-sub { color: var(--muted); font-size: 12.5px; }
+  .simple-card p { margin: 0; font-size: 14px; } .simple-card .lede { font-weight: 600; margin-bottom: 4px !important; }
+  .radar-item { display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--line); }
+  .radar-item:first-child { border-top: none; padding-top: 0; }
+  .radar-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--r); margin-top: 6px; flex: none; }
+  .radar-item p { margin: 0; font-size: 13px; } .radar-item .radar-sub { color: var(--muted); font-size: 12px; margin-top: 2px !important; }
+  .todo-item { display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--line); }
+  .todo-item:first-child { border-top: none; padding-top: 0; }
+  .todo-item p { margin: 0; font-size: 13px; } .todo-item .todo-sub { color: var(--muted); font-size: 12px; margin-top: 2px !important; }
+  hr.divider { border: none; border-top: 1px solid var(--line); margin: 26px 0 18px; }
+  .footer { text-align: center; margin-top: 8px; }
+  .footer p { margin: 0 0 4px; font-size: 12px; color: var(--muted); }
+  .footer .sync { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+  .footer .signoff { font-family: 'Fraunces', Georgia, serif; font-size: 14px; color: var(--ink); margin-top: 10px; }
+  .cal-links { font-size: 12px; color: var(--muted); line-height: 1.8; margin-top: 4px; }
+  .cal-links a { font-weight: 600; }
+</style>
+<div class="wrap">
+  <div class="topbar">
+    <div class="wordmark">Staley <span>HQ</span></div>
+    <div class="badge">🎒 Back-to-School Countdown</div>
+  </div>
+  <div class="hero">
+    <p class="hero-date">Sunday, August 23</p>
+    <p class="hero-greeting">Big week ahead — band camp rolls into game week, Danny's off in Great Falls, Grandma Colleen rolls into town, and Friday's shaping up to be a two-front war for Rosemary.</p>
+    <div class="weather">
+      <div class="weather-icon">🌤️</div>
+      <div><p class="wlabel">Weather — Week Outlook</p><p>Hot and mostly dry all week — highs upper 80s to mid-90s, lows low-to-mid 60s. Sunday's the wild card (40% storms after 4pm); Wed &amp; Thu carry a small evening shower chance too.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head"><p class="card-title">📋 Week Ahead</p></div>
+
+    <div class="day-label">Today · Sunday, Aug 23</div>
+    <div class="lineup-row">
+      <div class="lineup-time">All day</div>
+      <div class="lineup-body">
+        <p class="lineup-title">✈️ Yellowstone Int'l Air Show — Blue Angels</p>
+        <p class="lineup-note">Wraps up today downtown. High near 96°F, storms possible after 4pm — go earlier if headed down, bring water &amp; sunscreen.</p>
+      </div>
+    </div>
+
+    <div class="day-label">Monday, Aug 24</div>
+    <div class="lineup-row">
+      <div class="lineup-time">8:40 AM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Marching Band Camp <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Ben Steele Middle School, 9am–12pm. Warm — sunscreen, hat, full water bottle.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">All day</div>
+      <div class="lineup-body">
+        <p class="lineup-title">👵 Grandma Colleen arrives</p>
+        <p class="lineup-note">Here to help with school shopping — departure TBD. Yay!</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">All day</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Travel: Great Falls <span class="who who-d"><span class="who-dot"></span>D</span></p>
+        <p class="lineup-note">Work trip, week 2 of 3 — home Friday.</p>
+      </div>
+    </div>
+
+    <div class="day-label">Tuesday, Aug 25</div>
+    <div class="lineup-row">
+      <div class="lineup-time">8:40 AM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Marching Band Camp <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Same drill, 9am–12pm — sunscreen &amp; water again.</p>
+      </div>
+    </div>
+
+    <div class="day-label">Wednesday, Aug 26</div>
+    <div class="lineup-row">
+      <div class="lineup-time">5:30 PM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Violin Lesson <span class="who who-e"><span class="who-dot"></span>E</span></p>
+        <p class="lineup-note">Last one of the summer season — short gap before the fall Thursday slot starts Sept 3.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">6:00 PM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Family &amp; Friends Night <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">First marching band performance in the new stadium! Hot afternoon (91°F) cooling into evening — bring a layer + water.</p>
+      </div>
+    </div>
+
+    <div class="day-label">Thursday, Aug 27</div>
+    <div class="lineup-row">
+      <div class="lineup-time">6:00 PM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Skyview Home Game — Band Call <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Kickoff 7:00pm. Hot day (94°F) — water/sunscreen early, light layer for later.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">5:30 PM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Kava with the Girls <span class="who who-k"><span class="who-dot"></span>K</span></p>
+        <p class="lineup-note">Flexible — easy to skip if the day's already full.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">All day</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Last day in Great Falls <span class="who who-d"><span class="who-dot"></span>D</span></p>
+        <p class="lineup-note">Home tomorrow!</p>
+      </div>
+    </div>
+
+    <div class="day-label">Friday, Aug 28 — the big one</div>
+    <div class="lineup-row">
+      <div class="lineup-time">8:15 AM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Allergy Appointment <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">West End Billings Clinic.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">Today</div>
+      <div class="lineup-body">
+        <p class="lineup-title">WIC Course Change Deadline <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Through the counseling office — not individual teachers.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">5:00 PM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Senior Home Game — Band Call <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Kickoff 6:00pm.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">Evening</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Mustangs Scout Night + Campout <span class="who who-r"><span class="who-dot"></span>R</span><span class="who who-e"><span class="who-dot"></span>E</span></p>
+        <p class="lineup-note">Free with a Scout shirt (parents too) — campout on the field after, movie on the big screen.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">⚠️</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Heads up — double-booked tonight</p>
+        <p class="lineup-note">Senior Home Game overlaps Scout Night. Worth deciding now who's doing what (or how you're splitting it) rather than sorting it out at 5pm Friday.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">All day</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Home from Great Falls <span class="who who-d"><span class="who-dot"></span>D</span></p>
+        <p class="lineup-note">Danny's back today.</p>
+      </div>
+    </div>
+
+    <div class="day-label">Saturday, Aug 29</div>
+    <div class="lineup-row">
+      <div class="lineup-time">8:00 AM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Marching Band Parade <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Arrival at Senior High band room — Sam McDonald Stadium grand opening. Sunny &amp; hot again — hat, sunscreen, water.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">11:30 AM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Gymnastics <span class="who who-e"><span class="who-dot"></span>E</span></p>
+        <p class="lineup-note">Magic City Gymnastics.</p>
+      </div>
+    </div>
+    <div class="lineup-row">
+      <div class="lineup-time">~12 PM</div>
+      <div class="lineup-body">
+        <p class="lineup-title">Troop 23 Food Truck Battle <span class="who who-r"><span class="who-dot"></span>R</span></p>
+        <p class="lineup-note">Meet ~11:45am for a noon shift, possible to leave ~3pm. Overlaps Eleanor's gymnastics timing — two-driver morning.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card simple-card">
+    <div class="card-head"><p class="card-title">🧭 Mom's Week</p></div>
+    <p>Usual weekday-morning schedule at Shepherd/StackIron, generally home by early afternoon — plus full chauffeur duty this week for band camp, games, and Grandma Colleen's shopping run. Thursday's the standing (flexible) Kava date ~5:30.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><p class="card-title">🏕️ Scout Corner</p><p class="card-meta">Rosemary · Troop 23</p></div>
+    <div class="radar-item">
+      <div class="radar-dot"></div>
+      <p>Mustangs Scout Night — Fri, Aug 28<span class="radar-sub"><br>Free with a Scout shirt (parents too) — campout + movie after.</span></p>
+    </div>
+    <div class="radar-item">
+      <div class="radar-dot"></div>
+      <p>Food Truck Battle — Sat, Aug 29<span class="radar-sub"><br>Meet ~11:45am for a noon shift; possible to leave ~3pm if needed.</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><p class="card-title">🎒 Back-to-School To-Dos</p><p class="card-meta">School starts Sept 2/3</p></div>
+    <div class="todo-item">
+      <span class="who who-k"><span class="who-dot"></span>K</span>
+      <p>Eleanor's supply shopping — confirmed 2nd-grade list (Alkali Creek Elementary): 1 spiral notebook (wide-ruled); 2 boxes washable markers (8ct); 4 glue sticks; 24 sharpened #2 pencils; 1 box 24-count crayons; 1 6-pack Expo dry-erase markers (black only); 1 pair pointed scissors (Fiskars preferred); 1 plastic pencil box (max 9x6, no lock); 1 plastic pocket folder (no center clasp); 2 boxes Kleenex; 1 set headphones (no earbuds); 1 spill-proof water bottle; 1 container Clorox wipes; 1 box bandaids (boys); 1 box quart bags (girls); 1 ream white printer paper.<span class="todo-sub"><br>Still need to grab these?</span></p>
+    </div>
+    <div class="todo-item">
+      <span class="who who-k"><span class="who-dot"></span>K</span>
+      <p>Eleanor's clothing shopping<span class="todo-sub"><br>Separate outing from supplies.</span></p>
+    </div>
+    <div class="todo-item">
+      <span class="who who-r"><span class="who-dot"></span>R</span>
+      <p>Clothes &amp; shoes<span class="todo-sub"><br>No supply list needed at Skyview or WIC — both sets of grandparents chipped in, funds are ready. Good timing with Grandma Colleen in town!</span></p>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="footer">
+    <p>🔄 Refreshes automatically every morning — bookmark this once, always current.</p>
+    <p class="cal-links">
+      📅 Add the family calendar to your phone:<br>
+      <a href="webcal://calendar.google.com/calendar/ical/family15041099790361382971%40group.calendar.google.com/private-b0156fe341b6efc2338ef8eadad8e0b9/basic.ics">Subscribe (iPhone/Apple Mail)</a> ·
+      <a href="https://calendar.google.com/calendar/ical/family15041099790361382971%40group.calendar.google.com/private-b0156fe341b6efc2338ef8eadad8e0b9/basic.ics">ICS link (Gmail/other)</a>
+    </p>
+    <p class="sync">Last updated Sunday, Aug 23 · 1:44 PM MT</p>
+    <p class="signoff">— Claude, your friendly AI assistant</p>
+  </div>
+</div>
