@@ -1,1 +1,320 @@
-/tmp/morning_brief/dashboard_final.html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%84%3C/text%3E%3C/svg%3E">
+<title>Kiah's Day</title>
+<meta name="description" content="Kiah's daily workday brief — the shape of the day, what needs her, and what's already sorted.">
+<style>
+    :root {
+    --bg: #FCFCFB;
+    --wash: #F9F9F7;
+    --ink: #2E2C27;
+    --ink-soft: #6B6A63;
+    --ink-grey: #B4B3A8;
+    --hairline: #E4E3DC;
+    --band-edge: #E1E1DF;
+    --clay: #C6613F;
+    --clay-hover: #AE5133;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .band {
+    width: 100%;
+  }
+
+  .band-top {
+    background: var(--wash);
+    border-bottom: 1px solid var(--band-edge);
+  }
+
+  .band-bottom {
+    background: var(--bg);
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 28px 48px;
+  }
+
+  .day-date {
+    color: var(--ink-soft);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
+
+  h1.headline {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 1.25;
+    margin: 0 0 36px;
+    max-width: 720px;
+  }
+
+  .terrain {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .acts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 18px;
+  }
+
+  .act {
+    padding: 18px 24px;
+    border-left: 1px solid var(--hairline);
+  }
+
+  .act:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .act:last-child {
+    padding-right: 0;
+  }
+
+  .act-time {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .act-sentence {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .list-heading {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+
+  .item-list {
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0;
+  }
+
+  .item-list:last-child {
+    margin-bottom: 0;
+  }
+
+  .item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .item-num {
+    font-size: 13px;
+    color: var(--ink-grey);
+    min-width: 18px;
+    padding-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .item-body {
+    flex: 1;
+  }
+
+  .item-title {
+    font-weight: 700;
+    font-size: 15.5px;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .item-title a, .item-title span.linktext {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--ink-grey);
+    text-underline-offset: 2px;
+  }
+
+  .item-sentence {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .item-sentence .src {
+    color: var(--ink-soft);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .calm-line {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    margin: 0 0 44px;
+  }
+
+  .section-block {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 40px 20px 36px; }
+    h1.headline { font-size: 30px; }
+    .acts { grid-template-columns: 1fr; }
+    .act { border-left: none; border-top: 1px solid var(--hairline); padding: 16px 0; }
+    .act:first-child { border-top: none; padding-top: 0; }
+    .item { flex-direction: row; }
+  }
+</style>
+
+</head>
+<body>
+<div class="band band-top">
+  <div class="wrap">
+    <div class="day-date">Tuesday &middot; August 25, 2026</div>
+    <h1 class="headline">Camp wraps this morning, Kiah — then the day is yours.</h1>
+
+    <svg class="terrain" viewBox="0 0 840 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- sun motif: open creative time, clay accent (only clay item on the page since there are no buttons) -->
+      <g stroke="#C6613F" stroke-width="1.6" fill="none" opacity="0.85">
+        <circle cx="420" cy="46" r="14" />
+        <line x1="420" y1="20" x2="420" y2="10" />
+        <line x1="420" y1="72" x2="420" y2="82" />
+        <line x1="394" y1="46" x2="384" y2="46" />
+        <line x1="446" y1="46" x2="456" y2="46" />
+        <line x1="401" y1="27" x2="394" y2="20" />
+        <line x1="439" y1="27" x2="446" y2="20" />
+        <line x1="401" y1="65" x2="394" y2="72" />
+        <line x1="439" y1="65" x2="446" y2="72" />
+      </g>
+
+      <path d="M0,132 C40,131 70,128 100,116 C128,105 138,92 160,90 C182,92 196,104 222,114 C260,127 300,131 340,130 C400,129 470,127 540,126 C610,125 690,124 760,122 C790,121 815,121 840,120"
+            stroke="#2E2C27" stroke-width="2.25" stroke-linecap="round" />
+
+      <!-- band camp: Rosemary's final camp morning, real and load-bearing for the household -->
+      <circle cx="160" cy="90" r="8" fill="#2E2C27" />
+    </svg>
+
+    <div class="acts">
+      <div class="act">
+        <div class="act-time">9 AM&nbsp;&ndash;&nbsp;NOON</div>
+        <div class="act-sentence">Rosemary's last "camp" morning at Ben Steele — instruments and drumline gear come home after.</div>
+      </div>
+      <div class="act">
+        <div class="act-time">NOON&nbsp;&ndash;&nbsp;6&nbsp;PM</div>
+        <div class="act-sentence">Nothing on any calendar — StackIron and Shepherd Holdings are both quiet today. Good stretch for a job scan or the closet sort.</div>
+      </div>
+      <div class="act">
+        <div class="act-time">6&nbsp;PM ONWARD</div>
+        <div class="act-sentence">Easy evening — tonight's the calm before tomorrow's stadium debut.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="band band-bottom">
+  <div class="wrap">
+
+    <p class="calm-line">Nothing needs you this morning — inbox and Slack are both quiet across StackIron, Shepherd Holdings, and home.</p>
+
+    <div class="section-block">
+      <div class="list-heading">What my family needs to be reminded of today</div>
+      <ul class="item-list">
+        <li class="item">
+          <div class="item-num">1</div>
+          <div class="item-body">
+            <div class="item-title">Today's the last camp day</div>
+            <div class="item-sentence">Rosemary's final marching band "camp" morning runs 9 to noon at Ben Steele — the building clears out afterward and instruments (drumline gear included) head home.</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-num">2</div>
+          <div class="item-body">
+            <div class="item-title">Tomorrow's the stadium debut</div>
+            <div class="item-sentence">Wednesday is Family &amp; Friends Preview Night — the band's first performance in the new stadium. Students arrive 6 PM at the Senior High Band Room in performance gear (band tee, shorts or jeans, tennis shoes); family and friends arrive 6:45 PM for a 7 PM start, parking in the Senior lot and entering through the West "Main" gate.</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-num">3</div>
+          <div class="item-body">
+            <div class="item-title">Danny's still in Great Falls</div>
+            <div class="item-sentence">He's away for work through Friday — home in time for the weekend.</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-num">4</div>
+          <div class="item-body">
+            <div class="item-title">Worth an hour this week</div>
+            <div class="item-sentence">A quiet afternoon like today is a good one to carve out that Family Service / Marketplace sort before the new job kicks in.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <div class="list-heading">Open marketing / graphic design / creative / writing / editing jobs in Billings, MT</div>
+      <ul class="item-list">
+        <li class="item">
+          <div class="item-num">1</div>
+          <div class="item-body">
+            <div class="item-title"><a href="https://lensa.com/job-v1/billings-clinic/billings-mt/graphic-designer/87e52530c3ed61e529c7cfb2372b6551" target="_blank" rel="noopener">Graphic Design and Media Liaison</a> — Billings Clinic</div>
+            <div class="item-sentence">In-house design and media role at Billings' largest health system.</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-num">2</div>
+          <div class="item-body">
+            <div class="item-title"><a href="https://www.mediabistro.com/jobs/3540836377-marketing-manager" target="_blank" rel="noopener">Marketing Manager</a> — A&amp;E + SMA Design</div>
+            <div class="item-sentence">Marketing lead role at a local architecture/design firm.</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-num">3</div>
+          <div class="item-body">
+            <div class="item-title"><a href="https://www.linkedin.com/jobs/view/digital-communications-and-marketing-coordinator-at-riverstone-health-4416140081" target="_blank" rel="noopener">Digital Communications and Marketing Coordinator</a> — RiverStone Health</div>
+            <div class="item-sentence">Digital content and comms role at the county health nonprofit.</div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-num">4</div>
+          <div class="item-body">
+            <div class="item-title"><a href="https://business.billingschamber.com/jobs/Details/content-tourism-ambassador-program-manager-348321" target="_blank" rel="noopener">Content &amp; Tourism Ambassador Program Manager</a> — Visit Southeast Montana</div>
+            <div class="item-sentence">Regional tourism content and community program role, posted early August.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
