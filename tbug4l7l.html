@@ -1,1 +1,330 @@
-/home/claude/work/morning/dashboard.html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8C%84%3C/text%3E%3C/svg%3E">
+<title>Kiah's Day</title>
+<meta name="description" content="Kiah's daily workday brief — the shape of the day, what needs her, and what's already sorted.">
+<style>
+@font-face {
+  font-family: 'Fraunces';
+  font-weight: 600;
+  font-style: normal;
+  src: url(data:font/woff2;base64,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) format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --bg: #FCFCFB;
+  --wash: #F9F9F7;
+  --ink: #2E2C27;
+  --ink-soft: #6B6A63;
+  --ink-grey: #B4B3A8;
+  --hairline: #E4E3DC;
+  --clay: #C6613F;
+  --clay-hover: #AE5133;
+  --bandline: #E1E1DF;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.band {
+  width: 100%;
+}
+
+.band-top {
+  background: var(--wash);
+  border-bottom: 1px solid var(--bandline);
+}
+
+.band-bottom {
+  background: var(--bg);
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 40px;
+}
+
+.day-date {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+}
+
+.headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 28px;
+  max-width: 760px;
+}
+
+.terrain {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.acts {
+  display: flex;
+  margin-top: 6px;
+}
+
+.act {
+  flex: 1;
+  padding: 18px 22px 0;
+  border-left: 1px solid var(--hairline);
+}
+
+.act:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.act-time {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.act-sentence {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.section-heading {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+
+.list {
+  margin: 0 0 44px;
+  padding: 0;
+  list-style: none;
+}
+
+.list:last-child {
+  margin-bottom: 0;
+}
+
+.item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.list .item:first-child {
+  border-top: none;
+}
+
+.item-num {
+  font-size: 13px;
+  color: var(--ink-grey);
+  min-width: 18px;
+  padding-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.item-body {
+  flex: 1;
+}
+
+.item-title {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15.5px;
+  margin: 0 0 4px;
+}
+
+.item-title a, .item-sentence a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-soft);
+  text-underline-offset: 2px;
+}
+
+.item-sentence {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.item-sentence a {
+  color: var(--ink-soft);
+}
+
+.calm-line {
+  font-size: 15px;
+  color: var(--ink-soft);
+  padding: 8px 0 44px;
+  margin: 0;
+}
+
+.section-block {
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .headline { font-size: 30px; }
+  .acts { flex-direction: column; }
+  .act {
+    border-left: none;
+    border-top: 1px solid var(--hairline);
+    padding: 16px 0 0;
+  }
+  .act:first-child { border-top: none; padding-top: 0; }
+  .inner { padding: 36px 20px 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="band band-top">
+  <div class="inner">
+    <p class="day-date">Wednesday &middot; August 26, 2026</p>
+    <h1 class="headline">The day&#8217;s wide open, Kiah, until Rosemary takes the new stadium tonight.</h1>
+
+    <svg class="terrain" viewBox="0 0 840 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- sun motif above act 1 (open creative time) -->
+      <circle cx="140" cy="42" r="10" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="140" y1="20" x2="140" y2="26" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="140" y1="58" x2="140" y2="64" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="118" y1="42" x2="124" y2="42" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="156" y1="42" x2="162" y2="42" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="124" y1="26" x2="128" y2="30" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="152" y1="54" x2="156" y2="58" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="156" y1="26" x2="152" y2="30" stroke="#B4B3A8" stroke-width="1.6"/>
+      <line x1="128" y1="54" x2="124" y2="58" stroke="#B4B3A8" stroke-width="1.6"/>
+
+      <!-- one clay accent ring around the evening event dot -->
+      <circle cx="762" cy="70" r="17" stroke="#C6613F" stroke-width="1.4" opacity="0.55"/>
+
+      <!-- terrain stroke: calm through the open day, rising into tonight's performance -->
+      <path d="M0,120 C 60,119 100,121 150,119 C 220,117 260,120 310,119 C 370,118 400,119 420,118 C 470,117 520,118 570,116 C 610,115 640,110 668,98 C 690,89 705,78 722,72 C 738,66 750,65 762,70 C 778,77 792,88 810,95 C 822,100 832,101 840,100"
+        stroke="#2E2C27" stroke-width="2.25" stroke-linecap="round"/>
+
+      <!-- evening event dot: the debut, weighted heaviest -->
+      <circle cx="762" cy="70" r="12" fill="#2E2C27"/>
+    </svg>
+
+    <div class="acts">
+      <div class="act">
+        <div class="act-time">9&nbsp;AM&nbsp;&ndash;&nbsp;4&nbsp;PM</div>
+        <p class="act-sentence">Nothing on the calendar, work or personal. Open space to work with.</p>
+      </div>
+      <div class="act">
+        <div class="act-time">4&nbsp;&ndash;&nbsp;6&nbsp;PM</div>
+        <p class="act-sentence">Still clear. A good window before gear goes on for tonight.</p>
+      </div>
+      <div class="act">
+        <div class="act-time">6&nbsp;PM&nbsp;onward</div>
+        <p class="act-sentence">Gear goes on at 6, first performance in the brand new stadium starts at 7.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="band band-bottom">
+  <div class="inner">
+
+    <p class="calm-line">Nothing needs you this morning.</p>
+
+    <div class="section-block">
+      <p class="section-heading">What my family needs to be reminded of today</p>
+      <ul class="list">
+        <li class="item">
+          <span class="item-num">1</span>
+          <div class="item-body">
+            <p class="item-title">Rosemary&#8217;s marching band debut, 7 PM</p>
+            <p class="item-sentence">Family and Friends Night starts at 6 at the Senior High Band Room, gear on, first performance in the new stadium. Everyone else aim for 6:45, park at Senior High, and in through the Main gate on the west side. Danny&#8217;s still in Great Falls (week 2 of 3, home Friday) and will miss it.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">2</span>
+          <div class="item-body">
+            <p class="item-title">Stash a rain jacket, just in case</p>
+            <p class="item-sentence">Hot today, near 91&deg;F, cooling to 63&deg;F tonight with a small chance of showers before midnight. A light layer plus water for the stadium, and a rain jacket in the car wouldn&#8217;t hurt.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">3</span>
+          <div class="item-body">
+            <p class="item-title">Rosemary&#8217;s Friday allergy appointment</p>
+            <p class="item-sentence">Still riding on the insurance switch going through. Worth checking on today. If it hasn&#8217;t come through by end of day tomorrow, it needs a call to cancel or reschedule since it&#8217;s a 24 hour notice appointment.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">4</span>
+          <div class="item-body">
+            <p class="item-title">School supplies still on the list</p>
+            <p class="item-sentence">Eleanor&#8217;s school supplies and clothes, and Rosemary&#8217;s clothes and shoes. No rush today, just don&#8217;t let it slide to Labor Day weekend.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">5</span>
+          <div class="item-body">
+            <p class="item-title">Worth an hour for that declutter sort</p>
+            <p class="item-sentence">Family Service donations or a Facebook Marketplace pass, sometime this week, before the new job at Rebel River Creative kicks in around September 1.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <p class="section-heading">Open marketing / graphic design / creative / writing / editing jobs in Billings, MT</p>
+      <ul class="list">
+        <li class="item">
+          <span class="item-num">1</span>
+          <div class="item-body">
+            <p class="item-title"><a href="https://usnlx.com/billings-mt/graphic-design-and-media-liason/EDCD7C0BB89044608ECAEA0C793155B3/job/" target="_blank" rel="noopener">Graphic Design and Media Liaison</a></p>
+            <p class="item-sentence">Billings Clinic. In-house design across brochures, mailers, newsletters, video, and photography.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">2</span>
+          <div class="item-body">
+            <p class="item-title"><a href="https://www.glassdoor.com/job-listing/social-media-specialist-archie-cochrane-ford-JV_IC1135402_KO0,23_KE24,44.htm?jl=1009789114120" target="_blank" rel="noopener">Social Media Specialist</a></p>
+            <p class="item-sentence">Archie Cochrane Motors. Paid social, email, and website content for the dealership group.</p>
+          </div>
+        </li>
+        <li class="item">
+          <span class="item-num">3</span>
+          <div class="item-body">
+            <p class="item-title"><a href="https://www.linkedin.com/jobs/view/hybrid-director-of-sales-and-marketing-billings-mt-at-gecko-hospitality-corporate-4324063237" target="_blank" rel="noopener">Hybrid Director of Sales and Marketing</a></p>
+            <p class="item-sentence">Gecko Hospitality (Corporate). Hybrid role leading sales and marketing strategy, based in Billings.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
